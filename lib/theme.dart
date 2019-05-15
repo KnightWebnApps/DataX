@@ -5,6 +5,10 @@ final ThemeData theme = ThemeData(
   appBarTheme: appBarTheme,
 );
 
+final ThemeData darkTheme = ThemeData(
+ 
+);
+
 final TextTheme textTheme = TextTheme(
   body1: body1,
   body2: body2,
@@ -19,14 +23,14 @@ final TextStyle caption = TextStyle(
 );
 
 final TextStyle body1 = TextStyle(
-  color: Colors.white,
+  color: Colors.black,
   fontFamily: 'WorkSans',
   fontSize: 19.0,
   letterSpacing: 1.2
 );
 
 final TextStyle body2 = TextStyle(
-  color: Colors.white,
+  color: Colors.black,
   fontFamily: 'WorkSans',
   fontSize: 19.0,
   letterSpacing: 1.2,
