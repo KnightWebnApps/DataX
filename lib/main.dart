@@ -8,7 +8,7 @@ import 'package:flutter/rendering.dart';
 //import 'package:flare_flutter/flare_actor.dart';
 import 'package:dataX/theme.dart';
 import 'package:http/http.dart' as http;
-//import 'package:video_player/video_player.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 
 void main() => runApp(MyApp());
@@ -36,7 +36,10 @@ class FlutterXHome extends StatefulWidget {
 class _FlutterXHomeState extends State<FlutterXHome> {
 
   List<dynamic> data;
+  List<dynamic> upcomingData;
+  List<dynamic> launchedData;
   final String url = 'https://api.spacexdata.com/v3/launches';
+  YoutubePlayerController _controller = YoutubePlayerController();
  
 
   getData() async {
@@ -124,10 +127,15 @@ class _FlutterXHomeState extends State<FlutterXHome> {
                                 ],
                               ),
                             )
-                            :Text(data[index]["links"]["wikipedia"].toString(),
-                              textAlign: TextAlign.center,
-                              style: theme.textTheme.body2,
-
+                            :YoutubePlayer(
+                              context: context,
+                              videoId: data[index]["links"]["youtube_id"].toString(),
+                              autoPlay: false,
+                              showVideoProgressIndicator: true,
+                              onPlayerInitialized: (controller){
+                                _controller = controller;
+                                
+                              },
                             )
                         ],
                       )
@@ -148,6 +156,13 @@ class _FlutterXHomeState extends State<FlutterXHome> {
     super.initState();
     this.getData();
     
+    
+  }
+  @override
+  void deactivate() {
+    // This pauses video while navigating to next page.
+    _controller.pause();
+    super.deactivate();
   }
 }
 
