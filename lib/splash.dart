@@ -1,6 +1,10 @@
+import 'package:dataX/home.dart';
+
 import 'package:flutter/material.dart';
+
 import 'package:splashscreen/splashscreen.dart';
-import 'package:dataX/views/menu.dart';
+//import 'package:dataX/views/menu.dart';
+
 
 class LearnXSplash extends StatelessWidget {
   @override
@@ -9,7 +13,7 @@ class LearnXSplash extends StatelessWidget {
       body: SplashScreen(
         image: Image.asset('assets/splash.jpg'),
         seconds: 2,
-        navigateAfterSeconds: LearnXMenu(),
+        navigateAfterSeconds: Home(),
         photoSize: 180,
         title: Text("LearnX, SpaceX API App", style: TextStyle(color: Colors.white),),
         backgroundColor: Colors.black,

@@ -1,12 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 final ThemeData theme = ThemeData(
   textTheme: textTheme,
   appBarTheme: appBarTheme,
+  cardTheme: cardTheme,
+  
 );
 
 final ThemeData darkTheme = ThemeData(
  
+);
+
+final AppBarTheme appBarTheme = AppBarTheme(
+  color: Colors.black12,
+  elevation: 10.0
+);
+
+
+
+final CardTheme cardTheme = CardTheme(
+  color: Colors.deepOrange,
+  elevation: 10.0,
+  margin: EdgeInsets.all(10.0)
 );
 
 final TextTheme textTheme = TextTheme(
@@ -37,7 +53,3 @@ final TextStyle body2 = TextStyle(
   fontStyle: FontStyle.italic
 );
 
-final AppBarTheme appBarTheme = AppBarTheme(
-  color: Colors.black12,
-  elevation: 10.0
-);
